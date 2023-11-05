@@ -20,7 +20,7 @@ const Login = () => {
   
     handleLoginWithEmailPass(email,password)
     .then(res=>{
-      console.log(res);
+   
       navigate(location?.state ? location.state : '/')
     })
     .catch(err=>{
@@ -34,7 +34,7 @@ const Login = () => {
    const googleLogin=()=>{
     handleGooleLogin()
     .then(res=>{
-      console.log(res);
+    
       navigate(location?.state? location.state : '/')
       toast.success('Successfully Logged In')
 

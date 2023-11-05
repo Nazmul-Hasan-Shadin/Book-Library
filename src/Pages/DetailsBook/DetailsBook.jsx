@@ -2,14 +2,17 @@ import React, { useContext, useState } from 'react';
 import useAxios from '../../Hooks/useAxios';
 import { useQuery } from '@tanstack/react-query';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const DetailsBook = ({book}) => {
   const [quantity,setQuantity]= useState(book.quantity)
   const {bookImg,_id,bookName,desc, author,category,rating}= book;
+
+
   const axios = useAxios()
   const {user}= useContext(AuthContext)
   const [datee,setDate]=useState()
-      console.log('iam book',book);
+  
 
 
      const handleBorrowForm= e=>{
@@ -19,7 +22,9 @@ const DetailsBook = ({book}) => {
       const date= datee;
       const  name= user?.displayName;
       const email= user?.email;
-      const bookImg= bookImg;
+      // const bookImg= bookImg
+
+      
     const borrowedInfo= {date,name,email,bookImg}
 
       const modal = document.getElementById('my_modal_1');
@@ -27,14 +32,32 @@ const DetailsBook = ({book}) => {
         modal.close()
       }
 
+
   //  post borroed books date and name and email to borrowed-book collection
 
       axios.post('/borrowed-books',borrowedInfo)
-      .then(data=>console.log(data))
+      .then(res=>{
+        toast.success('Book Borrowed has Successful')
+
+         
+    //  update count after borreed data
+      axios.put(`/books/${_id}`,book)
+      .then(data=>{
+         
+        if (data.data.modifiedCount>0) {
+          
+          setQuantity(quantity-1)
+        }
+   
+      })
+
+
+      })
 
 
 
      }
+
 
      const handleDate=(e)=>{
          setDate(e.target.value)
@@ -102,7 +125,7 @@ const DetailsBook = ({book}) => {
        
           
 {/* Open the modal using document.getElementById('ID').showModal() method */}
-<button className="btn  bg-red-500 text-white" onClick={()=>document.getElementById('my_modal_1').showModal()}>Borrow</button>
+<button disabled={quantity===0} className="btn  bg-red-500 text-white" onClick={()=>document.getElementById('my_modal_1').showModal()}>Borrow</button>
 <dialog id="my_modal_1" className="modal">
   <div className="modal-box">
     <h3 className="font-bold text-lg">Hello!</h3>
@@ -117,7 +140,7 @@ const DetailsBook = ({book}) => {
     </div>
   </div>
 </dialog>
-<button onClick={''} className="flex w-28 px-9  ml-9 text-white bg-red-500 border-0 py-2 w- focus:outline-none hover:bg-red-600 rounded">Read</button>
+<button   onClick={''} className="flex w-28 px-9  ml-9 text-white bg-red-500 border-0 py-2 w- focus:outline-none hover:bg-red-600 rounded">Read</button>
         </div>
       </div>
     </div>

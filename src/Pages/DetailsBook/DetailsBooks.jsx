@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
   
 const DetailsBooks = () => {
   const {id}= useParams()
-  console.log(id,'usepara');
+
     const axios= useAxios()
     
     const {data}=useQuery({
@@ -16,7 +16,7 @@ const DetailsBooks = () => {
             return res
         }
      })
-     console.log(data);
+   
  
     return (
         <div>

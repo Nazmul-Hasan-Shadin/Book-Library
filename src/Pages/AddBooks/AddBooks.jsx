@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 
 const AddBooks = () => {
   const location = useLocation()
-  console.log(location);
+
   const navigate= useNavigate()
   const axios= useAxios()
   const [category,setCategory]= useState();
@@ -21,7 +21,7 @@ const AddBooks = () => {
   
     const author= form.get('author')
    
-    console.log(bookName,bookImg,quantity,desc,author, category,rating);
+  
    const formData={
      bookName,bookImg,quantity,desc,rating,category,author
    }
@@ -30,7 +30,7 @@ const AddBooks = () => {
   
   axios.post('/books',formData,{withCredentials:true})
   .then(data=>{
-    console.log(data);
+
      if (data.data.acknowledged) {
        toast.success('Book added Successfull')
      }
@@ -43,7 +43,7 @@ const AddBooks = () => {
    
   const handleChange=(e)=>{
     const value= e.target.value
-      console.log(value);
+
       setCategory(value)
 
    }

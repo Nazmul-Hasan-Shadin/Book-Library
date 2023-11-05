@@ -1,23 +1,34 @@
-import React from 'react';
+import useAxios from "../../Hooks/useAxios";
 
 const BorrowedBook = ({borrowBook}) => {
- const {_id, name, bookImg,date,email,borrowedDate }=borrowBook || {} ;
+ const {_id, name, bookImg,date,email,borrowedDate,bookName }=borrowBook 
+ console.log(borrowBook);
+ 
+  const axios = useAxios()
+ const handleBookReturn=async(id)=>{
+  console.log(id);
+    await axios.delete(`/borrowed-books/${id}`)
+    .then(res=>{
+      
+      axios.get(`/`)
+
+    })
+ }
+
+
     return (
-        <tr>
-        <th>
-          <label>
-            <input type="checkbox" className="checkbox" />
-          </label>
-        </th>
+        <tr className=' py-8'>
+
+        <div className='flex items-center md:gap-9 '>
         <td>
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center  space-x-3">
             <div className="avatar">
-              <div className="mask mask-squircle w-12 h-12">
+              <div className="mask mask-squircle h-24">
                 <img src={bookImg} alt="Avatar Tailwind CSS Component" />
               </div>
             </div>
             <div>
-              <div className="font-bold">{name}</div>
+              <div className="font-bold">{bookName}</div>
               <div className="text-sm opacity-50"> Return Date: {date}</div>
             </div>
           </div>
@@ -27,10 +38,12 @@ const BorrowedBook = ({borrowBook}) => {
           <br/>
           <span className="badge badge-ghost badge-sm">{email}</span>
         </td>
-        <td>Purple</td>
         <th>
-          <button className="btn btn-ghost btn-xs">details</button>
+          <button onClick={()=>handleBookReturn(_id)}  className="btn btn-ghost btn-xs">Return</button>
         </th>
+        </div>
+     
+      
       </tr>
     );
 };

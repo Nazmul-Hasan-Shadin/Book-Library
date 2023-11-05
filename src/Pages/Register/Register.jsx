@@ -19,7 +19,7 @@ const Register = () => {
       const name= form.get('name')
       const profile= form.get('profile')
       const password =form.get('password')
-      console.log(email,name,profile,password);
+     
 
       if (!/^(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{6,}$/.test(password)) {
         toast.error("Password Should contain at least one uppercase special character and minimum length 6")
@@ -28,11 +28,11 @@ const Register = () => {
 
     createUser(email,password)
     .then(res=>{
-        console.log(res)
+      
          
         handleUpdateUserProfile(name,profile)
         .then(result=>{
-            console.log(result)
+       
             navigate(location?.state? location.state : '/')
             toast.success('Successfully Register')
         })

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const BookCard = ({book}) => {
 const {bookImg,_id,bookName,
     quantity,desc, author,category,rating}= book;
-   console.log(book);
+
  
     return (
 <div className="card  dark:bg-base-100     shadow ">

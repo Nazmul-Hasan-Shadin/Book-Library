@@ -6,7 +6,7 @@ import BookCategory from '../BookCategories/BookCategory';
 const Home = () => {
     return (
      <div>
-              <Navbar></Navbar>
+           
         <Banner></Banner>
         <BookCategory></BookCategory>
      </div>

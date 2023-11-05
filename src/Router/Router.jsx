@@ -6,6 +6,8 @@ import Login from '../Pages/Login/Login';
 import Register from '../Pages/Register/Register';
 import BookCard from '../Pages/Home/BooksCard/BookCard';
 import BookCards from '../Pages/Home/BooksCard/BookCards';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import DetailsBooks from '../Pages/DetailsBook/DetailsBook';
 
 const router = createBrowserRouter([
     {
@@ -20,7 +22,7 @@ const router = createBrowserRouter([
         },
         {
           path: '/addbooks',
-          element: <AddBooks></AddBooks>
+          element: <PrivateRoute><AddBooks></AddBooks></PrivateRoute>
         },
         {
           path: '/login',
@@ -32,9 +34,13 @@ const router = createBrowserRouter([
         },
         {
           path: '/bookcards/:id',
-          element:<BookCards></BookCards>,
+          element:<PrivateRoute><BookCards></BookCards></PrivateRoute>,
 
 
+        },
+        {
+          path: '/details/:id',
+          element: <DetailsBooks></DetailsBooks>
         }
 
       ],

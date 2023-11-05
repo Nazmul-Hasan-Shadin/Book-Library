@@ -19,7 +19,7 @@ const BookCards = () => {
         }
     })
 
-
+ console.log(books?.data);
     return (
  <div >
             

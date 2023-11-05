@@ -15,7 +15,7 @@ const {user,logOut}=useContext(AuthContext)
         <li> <NavLink to={'/'} className={({isActive})=> {
         isActive ? "true": ""
     }} > All Books,</NavLink> </li>
-        <li> <NavLink to={'/'} className={({isActive})=> { 
+        <li> <NavLink to={'/borrowed-books'} className={({isActive})=> { 
         isActive ? "true": ""
     }} > Borrowed Books</NavLink> </li>
         <li> 

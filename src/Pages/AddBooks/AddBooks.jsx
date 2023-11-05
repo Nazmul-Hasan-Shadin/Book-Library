@@ -1,6 +1,7 @@
 import { useState } from "react";
 import useAxios from "../../Hooks/useAxios";
 import { useLocation, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const AddBooks = () => {
   const location = useLocation()
@@ -30,6 +31,9 @@ const AddBooks = () => {
   axios.post('/books',formData,{withCredentials:true})
   .then(data=>{
     console.log(data);
+     if (data.data.acknowledged) {
+       toast.success('Book added Successfull')
+     }
   
   })
 
@@ -92,7 +96,7 @@ const AddBooks = () => {
              <select onChange={handleChange} className="select select-info w-full max-w-xs">
             <option disabled selected>Select Category</option>
             <option>history</option>
-            <option>commedy</option>
+            <option>comics</option>
             <option>health</option>
             <option>horror</option>
             </select>

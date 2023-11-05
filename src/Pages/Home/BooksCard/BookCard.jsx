@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const BookCard = ({book}) => {
 const {bookImg,_id,bookName,
     quantity,desc, author,category,rating}= book;
-   
+   console.log(book);
  
     return (
 <div className="card  dark:bg-base-100     shadow ">
@@ -31,7 +31,7 @@ const {bookImg,_id,bookName,
       <p  className="font-bold"> type: {category} </p>
     </div>
     <span className="flex justify-between"> 
-    <Link to={`/details/${_id}`}> <button className="btn">Details</button></Link>
+    <Link to={`/findbooksbyid/${_id}`}> <button className="btn">Details</button></Link>
     </span>
   </div>
 </div>

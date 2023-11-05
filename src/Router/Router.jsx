@@ -7,7 +7,10 @@ import Register from '../Pages/Register/Register';
 import BookCard from '../Pages/Home/BooksCard/BookCard';
 import BookCards from '../Pages/Home/BooksCard/BookCards';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
-import DetailsBooks from '../Pages/DetailsBook/DetailsBook';
+import DetailsBook from '../Pages/DetailsBook/DetailsBook';
+import DetailsBooks from '../Pages/DetailsBook/DetailsBooks';
+import BorrowedBooks from '../Pages/BorrowdBooks/BorrowedBooks';
+
 
 const router = createBrowserRouter([
     {
@@ -39,8 +42,12 @@ const router = createBrowserRouter([
 
         },
         {
-          path: '/details/:id',
+          path: '/findbooksbyid/:id',
           element: <DetailsBooks></DetailsBooks>
+        },
+        {
+          path: '/borrowed-books',
+          element: <BorrowedBooks></BorrowedBooks>
         }
 
       ],

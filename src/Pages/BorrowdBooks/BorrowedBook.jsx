@@ -1,18 +1,30 @@
 import useAxios from "../../Hooks/useAxios";
 
 const BorrowedBook = ({borrowBook}) => {
- const {_id, name, bookImg,date,email,borrowedDate,bookName }=borrowBook 
+ const {_id, name, bookImg,date,email,borrowedDate,bookName,uniqueId}=borrowBook 
+
  console.log(borrowBook);
  
   const axios = useAxios()
  const handleBookReturn=async(id)=>{
-  console.log(id);
-    await axios.delete(`/borrowed-books/${id}`)
-    .then(res=>{
-      
-      axios.get(`/`)
 
-    })
+  try {
+    await axios.delete(`/borrowed-books/${id}`)
+        //  books:id(category)
+   const response=  await axios.put(`/findbooksbyid/${uniqueId}`)
+
+   if (response.data) {
+      console.log(response.data,'data bro');
+      
+
+   }
+
+  } catch (error) {
+    console.log(error);
+  }
+  console.log(id);
+
+
  }
 
 

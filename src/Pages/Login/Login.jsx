@@ -5,7 +5,9 @@ import {FcGoogle} from 'react-icons/fc'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
+import useAxios from '../../Hooks/useAxios';
 const Login = () => {
+  const axios= useAxios()
   const location= useLocation()
    const navigate= useNavigate()
    
@@ -34,7 +36,12 @@ const Login = () => {
    const googleLogin=()=>{
     handleGooleLogin()
     .then(res=>{
-    
+        
+      axios.post('/jwt')
+      .then(res=>{
+        console.log(res);
+      })
+       
       navigate(location?.state? location.state : '/')
       toast.success('Successfully Logged In')
 

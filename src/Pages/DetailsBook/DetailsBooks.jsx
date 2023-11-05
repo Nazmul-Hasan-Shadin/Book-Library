@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
   
 const DetailsBooks = () => {
   const {id}= useParams()
-
+//  its original id
     const axios= useAxios()
     
     const {data}=useQuery({

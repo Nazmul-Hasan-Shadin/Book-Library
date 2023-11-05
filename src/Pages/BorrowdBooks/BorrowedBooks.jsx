@@ -1,14 +1,17 @@
-import React from 'react';
+
 import useAxios from '../../Hooks/useAxios';
 import { useQuery } from '@tanstack/react-query';
 import BorrowedBook from './BorrowedBook';
+import { useContext } from 'react';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const BorrowedBooks = () => {
+    const {user}= useContext(AuthContext)
     const axios= useAxios()
      const {data}=useQuery({
         queryKey: ['borrowed-books'],
         queryFn: ()=> {
-            return axios.get('/borrowed-books')
+            return axios.get(`/borrowed-books/?email=${user?.email}`)
         }
      })
  

@@ -5,12 +5,15 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 
 const DetailsBook = ({book}) => {
+  const {user}= useContext(AuthContext)
+  // original id final
+
   const [quantity,setQuantity]= useState(book.quantity)
   const {bookImg,_id,bookName,desc, author,category,rating}= book;
 
 
   const axios = useAxios()
-  const {user}= useContext(AuthContext)
+ 
   const [datee,setDate]=useState()
   
 
@@ -22,10 +25,12 @@ const DetailsBook = ({book}) => {
       const date= datee;
       const  name= user?.displayName;
       const email= user?.email;
+      const uniqueId=_id;
+      const unique= 'unique';
       // const bookImg= bookImg
 
-      
-    const borrowedInfo= {date,name,email,bookImg}
+      console.log(user.email);
+    const borrowedInfo= {date,name,email,bookImg,uniqueId,unique}
 
       const modal = document.getElementById('my_modal_1');
       if (modal) {
@@ -35,7 +40,7 @@ const DetailsBook = ({book}) => {
 
   //  post borroed books date and name and email to borrowed-book collection
 
-      axios.post('/borrowed-books',borrowedInfo)
+      axios.post(`/borrowed-books` ,borrowedInfo)
       .then(res=>{
         toast.success('Book Borrowed has Successful')
 
@@ -45,7 +50,7 @@ const DetailsBook = ({book}) => {
       .then(data=>{
          
         if (data.data.modifiedCount>0) {
-          
+          console.log('ho updatedddd');
           setQuantity(quantity-1)
         }
    

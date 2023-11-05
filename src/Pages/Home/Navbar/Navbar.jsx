@@ -16,9 +16,16 @@ const Navbar = () => {
         <li> <NavLink to={'/'} className={({isActive})=> {
         isActive ? "true": ""
     }} > Borrowed Books</NavLink> </li>
-        <li> <NavLink to={'/'} className={({isActive})=> {
+        <li> 
+            
+            <NavLink to={'/login'} className={({isActive})=> {
         isActive ? "true": ""
-    }} > Login</NavLink> </li>
+    }} > Login</NavLink>
+    
+    
+    
+    
+     </li>
      
     
     </>

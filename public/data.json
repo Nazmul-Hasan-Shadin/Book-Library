@@ -1,18 +1,38 @@
 [
     {
-        "image": "Book Cover Image URL 1",
-        "categoryName": "Category Name 1"
+      "bookname": "The Haunting of Hill House",
+      "bookImage": "https://i.ibb.co/ZGgfGx3/horor1.jpg",
+      "authorName": "Shirley Jackson",
+      "quantity": 10,
+      "category": "horror"
     },
     {
-        "image": "Book Cover Image URL 2",
-        "categoryName": "Category Name 2"
+      "bookname": "Maus",
+      "bookImage": "https://i.ibb.co/9qv1hpD/horror2.jpg",
+      "authorName": "Art Spiegelman",
+      "quantity": 8,
+      "category": "comic"
     },
     {
-        "image": "Book Cover Image URL 3",
-        "categoryName": "Category Name 3"
+      "bookname": "The Power of Now",
+      "bookImage": "power-of-now.jpg",
+      "authorName": "Eckhart Tolle",
+      "quantity": 12,
+      "category": "health"
     },
     {
-        "image": "Book Cover Image URL 4",
-        "categoryName": "Category Name 4"
+      "bookname": "Sapiens: A Brief History of Humankind",
+      "bookImage": "sapiens.jpg",
+      "authorName": "Yuval Noah Harari",
+      "quantity": 15,
+      "category": "history"
+    },
+    {
+      "bookname": "It",
+      "bookImage": "it.jpg",
+      "authorName": "Stephen King",
+      "quantity": 7,
+      "category": "horror"
     }
-]
+  ]
+  

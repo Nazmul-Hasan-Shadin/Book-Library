@@ -3,7 +3,58 @@ import {AiFillLock,AiFillFacebook,AiOutlineTwitter}from 'react-icons/ai'
 import {GoPeople} from 'react-icons/go'
 import {FcGoogle} from 'react-icons/fc'
 
+import { useContext } from 'react';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
+
 const Register = () => {
+  const {createUser,logOut,handleUpdateUserProfile}= useContext(AuthContext)
+  const navigate= useNavigate()
+
+    const handleFormSubmit=(e)=>{
+      e.preventDefault()
+      const form =  new FormData(e.currentTarget);
+      const email= form.get('email')
+      const name= form.get('name')
+      const profile= form.get('profile')
+      const password =form.get('password')
+      console.log(email,name,profile,password);
+
+      if (!/^(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{6,}$/.test(password)) {
+        toast.error("Password Should contain at least one uppercase special character and minimum length 6")
+        return
+    }
+
+    createUser(email,password)
+    .then(res=>{
+        console.log(res)
+         
+        handleUpdateUserProfile(name,profile)
+        .then(result=>{
+            console.log(result)
+            navigate(location?.state? location.state : '/')
+            toast.success('Successfully Register')
+        })
+        .catch(error=>{
+            console.log(error.message)
+        })
+          
+
+       
+    })
+   .catch(err=>{
+    console.log(err.message);
+   })
+
+     
+   
+
+
+    }
+
+
+
     return (
      
        
@@ -13,16 +64,27 @@ const Register = () => {
             
             <div className="card flex-shrink-0 w-full max-w-sm   shadow-2xl bg-base-100">
             <h2 className='tect-center text-3xl'>Register Now</h2>
-              <form className="card-body mx-auto -ml-5 ">
+              <form onSubmit={handleFormSubmit} className="card-body mx-auto -ml-5 ">
               <div className="form-control">
                   <label className="label">
                     <span className="label-text">Name</span>
                   </label>
                 <span className='relative'>
                 <GoPeople className='absolute left-2 top-1/3'></GoPeople>
-                  <input type="email" placeholder="Type Your Name" className="input border border-b-slate-400 border-t-0 border-x-0 px-7" required />
+                  <input name='name' type="text" placeholder="Type Your Name" className="input border border-b-slate-400 border-t-0 border-x-0 px-7" required />
                 </span>
                 </div>
+
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Your Profile</span>
+                  </label>
+                <span className='relative'>
+                <GoPeople className='absolute left-2 top-1/3'></GoPeople>
+                  <input name='profile'  type="text" placeholder="Your Profile Image Url" className="input border border-b-slate-400 border-t-0 border-x-0 px-7" required />
+                </span>
+                </div>
+
 
 
                 <div className="form-control">
@@ -31,7 +93,7 @@ const Register = () => {
                   </label>
                 <span className='relative'>
                 <GoPeople className='absolute left-2 top-1/3'></GoPeople>
-                  <input type="email" placeholder="Type Your email" className="input border border-b-slate-400 border-t-0 border-x-0 px-7" required />
+                  <input type="email" name='email' placeholder="Type Your email" className="input border border-b-slate-400 border-t-0 border-x-0 px-7" required />
                 </span>
                 </div>
                 <div className="form-control">
@@ -41,7 +103,7 @@ const Register = () => {
                   
                 <span className='relative'>
                     <AiFillLock  className='absolute top-1/3 left-2'></AiFillLock>  
-                <input  type="password" placeholder="type your password" className="input  px-7 border border-b-slate-400 border-t-0 border-x-0 " required />
+                <input  type="password" name='password' placeholder="type your password" className="input  px-7 border border-b-slate-400 border-t-0 border-x-0 " required />
                     </span>    
                   <label className="label">
                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
@@ -49,7 +111,7 @@ const Register = () => {
                 </div>
                 <div className="form-control  mt-6">
            
-              <input type="button" className='btn btn-primary   bg-gradient-to-r from-[#22c3d8] via-purple-500 to-pink-500' value={"Register"} name="" id="" />
+              <input type="submit" className='btn btn-primary   bg-gradient-to-r from-[#22c3d8] via-purple-500 to-pink-500' value={"Register"} name="" id="" />
               
                 </div>
                 <p>Or Sign In with</p>

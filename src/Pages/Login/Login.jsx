@@ -2,6 +2,7 @@ import React from 'react';
 import {AiFillLock,AiFillFacebook,AiOutlineTwitter}from 'react-icons/ai'
 import {GoPeople} from 'react-icons/go'
 import {FcGoogle} from 'react-icons/fc'
+import { Link } from 'react-router-dom';
 const Login = () => {
     return (
 <div className="hero min-h-screen  bg-base-200">
@@ -46,7 +47,7 @@ const Login = () => {
           </span>
         </div>
         <p>
-            Have not Account ? Sign Up
+            Have not Account ? <Link to={'/register'}>Sign Up</Link>
         </p>
         <div>
 

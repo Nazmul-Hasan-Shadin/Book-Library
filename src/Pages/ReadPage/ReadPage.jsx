@@ -1,10 +1,17 @@
+import { usePDF } from 'react-to-pdf';
 
 const ReadPage = () => {
+    const { toPDF, targetRef } = usePDF({filename: 'Book.pdf'});
+
     return (
-        <div className="flex flex-col max-w-7xl mx-auto">
-            <img className="" src='https://i.ibb.co/VjGfzJW/his.jpg' alt="" />
-            <div>
-                <h2 className="text-2xl">About History</h2>
+      <div className=' max-w-7xl px-10 mx-auto'>
+               <div className="flex flex-col">
+            <img className="h-56 object-cover" src='https://i.ibb.co/mq24j7W/istockphoto-1413840933-170667a.webp' alt="" />
+            <div ref={targetRef} >
+      <span className='flex justify-between'>
+      <h2 className="text-2xl">About History</h2>
+                <button className='btn btn-secondary  btn-sm lg:btn-md mt-3' onClick={() => toPDF()}>Download as PDF</button>
+      </span>
              <p>
              The history of books became an acknowledged academic discipline in the 1980s. Contributors to the discipline include specialists from the fields of textual scholarship, codicology, bibliography, philology, palaeography, art history, social history and cultural history. 
              </p>
@@ -17,6 +24,7 @@ const ReadPage = () => {
 
             </div>
         </div>
+      </div>
     );
 };
 

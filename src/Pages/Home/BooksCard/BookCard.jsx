@@ -15,7 +15,7 @@ const {bookImg,_id,bookName,
   <figure>
     <img className="w-[100%] h-[300px] px-4" src={bookImg} alt="" />
     </figure>
-  <div  className="card-body px-1">
+  <div  className="card-body px-4">
     <div className="flex dark:text-white w-[100%] gap-2 justify-between ">
         <p className=" ">Author: {author} </p>
 
@@ -26,7 +26,7 @@ const {bookImg,_id,bookName,
   fullSymbol={<AiTwotoneStar className='icon'></AiTwotoneStar>}
 />
 
-        <p className="flex-1">{rating}  </p>
+        <p className="flex-1">{rating} star </p>
     </div>
     <div>
     <p className="text-blue-600"> {bookName} </p>

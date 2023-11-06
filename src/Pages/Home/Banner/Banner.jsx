@@ -14,7 +14,7 @@ import banner5 from "../../../assets/images/bannerCouple.png"
 const Banner = () => {
     return (
     
-      <div className='my-20'>
+      <div className='mt-20 mb-6'>
                   
                   <Swiper
               // install Swiper modules

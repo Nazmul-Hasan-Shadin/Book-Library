@@ -3,6 +3,7 @@ import useAxios from '../../Hooks/useAxios';
 import { useQuery } from '@tanstack/react-query';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 const DetailsBook = ({book}) => {
   const {user}= useContext(AuthContext)
@@ -41,27 +42,31 @@ const DetailsBook = ({book}) => {
   //  post borroed books date and name and email to borrowed-book collection
 
       axios.post(`/borrowed-books` ,borrowedInfo)
+
       .then(res=>{
-        toast.success('Book Borrowed has Successful')
-
-         
-    //  update count after borreed data
-      axios.put(`/books/${_id}`,book)
-      .then(data=>{
-         
-        if (data.data.modifiedCount>0) {
-          console.log('ho updatedddd');
-          setQuantity(quantity-1)
+        if (res.data.erro) {
+          toast.error(res.data.erro)
         }
-   
-      })
+        else{
+          toast.success('Book Borrowed has Successful')
+          axios.put(`/books/${_id}`,book)
+          .then(data=>{
+            if (data.data.modifiedCount>0) {
+              setQuantity(quantity-1)
+            }
+          })
+        }
+     
 
-
+         
+  
+    
       })
       .catch(error=>{
-        toast.error(error.response.data.erro)
-        console.log(error);
-        console.log(error.response.data.erro);
+        // chatgpt here is error not show instead show toast that book borrowd succesful
+        toast.error('You already added this book')
+       
+      
       })
 
 
@@ -150,7 +155,10 @@ const DetailsBook = ({book}) => {
     </div>
   </div>
 </dialog>
-<button   onClick={`/readbook/${_id}`} className="flex w-28 px-9  ml-9 text-white bg-red-500 border-0 py-2 w- focus:outline-none hover:bg-red-600 rounded">Read</button>
+<Link to={`/readbook/${_id}`}>
+<button   className="flex w-28 px-9  ml-9 text-white bg-red-500 border-0 py-2 w- focus:outline-none hover:bg-red-600 rounded">Read</button>
+</Link>
+
         </div>
       </div>
     </div>

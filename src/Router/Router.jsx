@@ -13,6 +13,7 @@ import BorrowedBooks from '../Pages/BorrowdBooks/BorrowedBooks';
 import AllBooks from '../Pages/AllBooks/AllBooks';
 import UpdateBook from '../Pages/Update/UpdateBook';
 import ErrorPage from '../Pages/ErrorPage/ErrorPage';
+import ReadPage from '../Pages/ReadPage/ReadPage';
 
 
 const router = createBrowserRouter([
@@ -61,9 +62,13 @@ const router = createBrowserRouter([
         {
           path:'/updatebook/:id',
           element:<PrivateRoute><UpdateBook></UpdateBook></PrivateRoute>,
-          loader: ({params})=> fetch(`http://localhost:5000/single-book/${params.id}`)
+          loader: ({params})=> fetch(`https://books-server-six.vercel.app/single-book/${params.id}`)
 
           
+        },
+        {
+          path:'/readbook/:id',
+          element:<ReadPage></ReadPage>
         }
 
       ],

@@ -11,7 +11,7 @@ const BorrowedBooks = () => {
     const {user}= useContext(AuthContext)
     const axios= useAxios()
      const {data}=useQuery({
-        queryKey: ['borrowed-books'],
+        queryKey: ['borrowed-bookss'],
         queryFn: ()=> {
             return axios.get(`/borrowed-books/?email=${user?.email}`)
         }
@@ -25,7 +25,7 @@ const BorrowedBooks = () => {
      
         },
         onSuccess:()=>{
-            queryClient.invalidateQueries({queryKey:['borrowed-books']})
+            queryClient.invalidateQueries({queryKey:['borrowed-bookss']})
             toast.success('Book Return Successful')
         }
      })

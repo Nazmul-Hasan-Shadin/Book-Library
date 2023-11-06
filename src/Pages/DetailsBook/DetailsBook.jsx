@@ -60,6 +60,7 @@ const DetailsBook = ({book}) => {
       })
       .catch(error=>{
         toast.error(error.response.data.erro)
+        console.log(error);
         console.log(error.response.data.erro);
       })
 
@@ -149,7 +150,7 @@ const DetailsBook = ({book}) => {
     </div>
   </div>
 </dialog>
-<button   onClick={''} className="flex w-28 px-9  ml-9 text-white bg-red-500 border-0 py-2 w- focus:outline-none hover:bg-red-600 rounded">Read</button>
+<button   onClick={`/readbook/${_id}`} className="flex w-28 px-9  ml-9 text-white bg-red-500 border-0 py-2 w- focus:outline-none hover:bg-red-600 rounded">Read</button>
         </div>
       </div>
     </div>

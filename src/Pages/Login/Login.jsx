@@ -11,7 +11,7 @@ const Login = () => {
   const location= useLocation()
    const navigate= useNavigate()
    
-  const {handleGooleLogin,handleLoginWithEmailPass,logOut}= useContext(AuthContext)
+  const {handleGooleLogin,handleLoginWithEmailPass,logOut,user}= useContext(AuthContext)
 
    const handleLogin=(e)=>{
           e.preventDefault()
@@ -38,7 +38,7 @@ const Login = () => {
     handleGooleLogin()
     .then(res=>{
         
-      axios.post('/jwt')
+      axios.post('/jwt',res.email)
       .then(res=>{
         console.log(res);
       })

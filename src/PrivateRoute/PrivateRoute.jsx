@@ -5,10 +5,13 @@ import { Navigate, useLocation } from 'react-router-dom';
 const PrivateRoute = ({children}) => {
     const location= useLocation()
 
-  const {user}= useContext(AuthContext)
+  const {user,loading}= useContext(AuthContext)
 
+   if (loading) {
+    return <span  className=" flex  mx-auto justify-center  loading loading-dots loading-lg"></span>
+   }
 
-  if (user?.email) {
+  if (user?.email && !loading) {
     return children
   }
  return <Navigate state={location.pathname}  to={'/login'}></Navigate>

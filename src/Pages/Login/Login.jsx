@@ -11,7 +11,7 @@ const Login = () => {
   const location= useLocation()
    const navigate= useNavigate()
    
-  const {handleGooleLogin,handleLoginWithEmailPass}= useContext(AuthContext)
+  const {handleGooleLogin,handleLoginWithEmailPass,logOut}= useContext(AuthContext)
 
    const handleLogin=(e)=>{
           e.preventDefault()
@@ -27,6 +27,7 @@ const Login = () => {
     })
     .catch(err=>{
       console.log(err);
+      logOut()
       toast.error(err.message)
     })
 

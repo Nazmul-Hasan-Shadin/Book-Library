@@ -1,6 +1,9 @@
-import React from 'react';
+
 import useAxios from '../../../Hooks/useAxios';
 import { Link } from 'react-router-dom';
+import Rating from 'react-rating';
+
+import {AiOutlineStar,AiTwotoneStar}from "react-icons/ai"
 
 const BookCard = ({book}) => {
 const {bookImg,_id,bookName,
@@ -8,23 +11,24 @@ const {bookImg,_id,bookName,
 
  
     return (
-<div className="card  dark:bg-base-100     shadow ">
+<div className="card   dark:bg-base-100     shadow ">
   <figure>
-    <img className="w-60 h-60" src={bookImg} alt="" />
+    <img className="w-[100%] h-[300px] px-4" src={bookImg} alt="" />
     </figure>
-  <div  className="card-body">
-    <span className="flex dark:text-white ">
-        <p className="flex-1 ">Author: {author} </p>
-        <div className="rating dark:text-white rating-xs flex flex-row-reverse justify-between items-center ">
-            <span className='ml-2' >  {rating} review</span>
-  <input type="radio" name="rating-5" className="mask mask-star-2 bg-orange-400" />
-  <input type="radio" name="rating-5" className="mask mask-star-2 bg-orange-400" checked />
-  <input type="radio" name="rating-5" className="mask mask-star-2 bg-orange-400" />
-  <input type="radio" name="rating-5" className="mask mask-star-2 bg-orange-400" />
-  <input type="radio" name="rating-5" className="mask mask-star-2 bg-orange-400" />
-</div>
-        {/* <p className="flex-1">star: {rating} </p> */}
-    </span>
+  <div  className="card-body px-1">
+    <div className="flex dark:text-white w-[100%] gap-2 justify-between ">
+        <p className=" ">Author: {author} </p>
+
+    
+    <Rating
+     initialRating={rating}
+  emptySymbol={<AiOutlineStar className='icon'></AiOutlineStar>}
+  fullSymbol={<AiTwotoneStar className='icon'></AiTwotoneStar>}
+/>
+
+        <p className="flex-1">{rating}  </p>
+    </div>
+    <div>
     <p className="text-blue-600"> {bookName} </p>
     <div className="card-actions justify-end dark:text-white">
       <p className="text-[#f53c3c] font-extrabold "> Quantity: {quantity} </p>
@@ -33,6 +37,7 @@ const {bookImg,_id,bookName,
     <span className="flex justify-between"> 
     <Link to={`/findbooksbyid/${_id}`}> <button className="btn">Details</button></Link>
     </span>
+    </div>
   </div>
 </div>
     );

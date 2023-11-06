@@ -58,6 +58,10 @@ const DetailsBook = ({book}) => {
 
 
       })
+      .catch(error=>{
+        toast.error(error.response.data.erro)
+        console.log(error.response.data.erro);
+      })
 
 
 

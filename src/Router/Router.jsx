@@ -12,12 +12,14 @@ import DetailsBooks from '../Pages/DetailsBook/DetailsBooks';
 import BorrowedBooks from '../Pages/BorrowdBooks/BorrowedBooks';
 import AllBooks from '../Pages/AllBooks/AllBooks';
 import UpdateBook from '../Pages/Update/UpdateBook';
+import ErrorPage from '../Pages/ErrorPage/ErrorPage';
 
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement: <ErrorPage></ErrorPage>,
     
       children: [
         {
@@ -39,13 +41,13 @@ const router = createBrowserRouter([
         },
         {
           path: '/bookcards/:id',
-          element:<PrivateRoute><BookCards></BookCards></PrivateRoute>,
+          element:<BookCards></BookCards>,
 
 
         },
         {
           path: '/findbooksbyid/:id',
-          element: <DetailsBooks></DetailsBooks>
+          element: <PrivateRoute><DetailsBooks></DetailsBooks></PrivateRoute>
         },
         {
           path: '/borrowed-books',

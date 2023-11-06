@@ -1,15 +1,28 @@
+import toast from "react-hot-toast";
 import useAxios from "../../Hooks/useAxios";
 
-const BorrowedBook = ({borrowBook}) => {
+const BorrowedBook = ({borrowBook,deleteMutate}) => {
  const {_id, name, bookImg,date,email,borrowedDate,bookName,uniqueId}=borrowBook 
 
  console.log(borrowBook);
  
   const axios = useAxios()
+  // book return button
+// last
+
  const handleBookReturn=async(id)=>{
 
   try {
-    await axios.delete(`/borrowed-books/${id}`)
+    // await axios.delete(`/borrowed-books/${id}`)
+    // .then(result=>{
+    //   if (result.data.deletedCount>0) {
+    //     toast.success('Book Return Successfull')
+    //   }
+     
+    // })
+  
+      deleteMutate(id)
+      
         //  books:id(category)
    const response=  await axios.put(`/findbooksbyid/${uniqueId}`)
 

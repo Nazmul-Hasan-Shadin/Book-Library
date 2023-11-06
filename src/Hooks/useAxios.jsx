@@ -1,4 +1,6 @@
 import axios from "axios";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
  
    const instance = axios.create({
@@ -6,6 +8,19 @@ import axios from "axios";
     withCredentials:true
    });
 const useAxios = () => {
+    const {logOut}=useContext(AuthContext)
+    instance.interceptors.response.use(function (response) {
+      
+        return response
+      },
+       function (error) {
+       
+        if (error.response.status === 401) {
+            console.log(error);
+            logOut()
+        }
+     
+      })
   
     return instance
 

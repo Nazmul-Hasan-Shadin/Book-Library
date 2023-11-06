@@ -5,7 +5,7 @@ import {FcGoogle} from 'react-icons/fc'
 
 import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 const Register = () => {
@@ -125,7 +125,7 @@ const Register = () => {
                   </span>
                 </div> */}
                 <p>
-                    Have an Account ? Log In
+                    Have an Account ? <Link to={'/login'}>Log In</Link>
                 </p>
                 <div>
         

@@ -9,13 +9,17 @@ const DetailsBooks = () => {
 //  its original id
     const axios= useAxios()
     
-    const {data}=useQuery({
+    const {data,isLoading}=useQuery({
         queryKey: ['specificProductDetails'],
         queryFn: ()=>{
             const res=   axios.get(`/findbooksbyid/${id}`)
             return res
         }
      })
+
+     if (isLoading) {
+      return <span  className=" flex  mx-auto justify-center  loading loading-dots loading-lg"></span>
+     }
    
  
     return (

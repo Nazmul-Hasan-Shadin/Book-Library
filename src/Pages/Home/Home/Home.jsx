@@ -3,6 +3,7 @@ import Navbar from '../Navbar/Navbar';
 import Banner from '../Banner/Banner';
 import BookCategory from '../BookCategories/BookCategory';
 import BookPromotion from '../BookPromotion/BookPromotion';
+import Author from '../Author/Author';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
         <Banner></Banner>
         <BookCategory></BookCategory>
         <BookPromotion></BookPromotion>
+        <Author></Author>
      </div>
     );
 };

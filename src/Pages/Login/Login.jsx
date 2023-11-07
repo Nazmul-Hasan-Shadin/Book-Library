@@ -23,6 +23,10 @@ const Login = () => {
 
     handleLoginWithEmailPass(email, password)
       .then((res) => {
+        axios.post("/jwt", res.email).then((res) => {
+          console.log(res);
+        });
+
         navigate(location?.state ? location.state : "/");
       })
       .catch((err) => {

@@ -16,7 +16,7 @@ const {bookImg,_id,bookName,
     <img className="w-[100%] h-[300px] px-4" src={bookImg} alt="" />
     </figure>
   <div  className="card-body px-4">
-    <div className="flex dark:text-white w-[100%] gap-2 justify-between ">
+    <div className="flex w-[100%] gap-2 justify-between ">
         <p className=" ">Author: {author} </p>
 
     
@@ -26,16 +26,16 @@ const {bookImg,_id,bookName,
   fullSymbol={<AiTwotoneStar className='icon'></AiTwotoneStar>}
 />
 
-        <p className="flex-1">{rating} star </p>
+        <p className=" ">{rating} star </p>
     </div>
     <div>
-    <p className="text-blue-600"> {bookName} </p>
-    <div className="card-actions justify-end dark:text-white">
+    <p className="text-blue-600    "> {bookName} </p>
+    <div className="card-actions gap-10 mb-4 justify-between ">
       <p className="text-[#f53c3c] font-extrabold "> Quantity: {quantity} </p>
-      <p  className="font-bold"> type: {category} </p>
+      <p  className="font-bold "> category: {category} </p>
     </div>
-    <span className="flex justify-between"> 
-    <Link to={`/findbooksbyid/${_id}`}> <button className="btn">Details</button></Link>
+    <span className="flex justify-between "> 
+    <Link className='' to={`/findbooksbyid/${_id}`}> <button className="btn ">Details</button></Link>
     </span>
     </div>
   </div>

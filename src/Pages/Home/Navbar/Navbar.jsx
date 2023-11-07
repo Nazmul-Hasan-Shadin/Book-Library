@@ -4,8 +4,9 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import logo from "../../../assets/logo/logo.png"
 import {RxAvatar}from "react-icons/rx"
 import useAxios from "../../../Hooks/useAxios";
+import DarkMode from "../../../Layout/DarkMode";
 
-const Navbar = () => {
+const Navbar = ({changeTheme}) => {
 const {user,logOut}=useContext(AuthContext)
 const axios=useAxios()
 const handleLogOut=()=>{
@@ -105,7 +106,8 @@ const handleLogOut=()=>{
         <li><a>Logout</a></li>
       </ul>
     </div>
-    <p className=" hidden lg:block text-black ml-10"> {user?.displayName} </p>
+    <a className=" hidden lg:block font-bold ml-10"> {user?.displayName} </a>
+     <DarkMode changeTheme={changeTheme}></DarkMode>
   </div>
 </div>
     );

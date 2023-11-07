@@ -16,9 +16,10 @@ const Author = () => {
         <h2 className='text-2xl font-bold text-center'>Authors of the month</h2>
 
         <div className='overflow-x-hidden'>
-        <div data-aos="fade-up"
-  
-     data-aos-duration="1000">
+        <div data-aos="fade-left"
+     data-aos-anchor="#example-anchor"
+     data-aos-offset="500"
+     data-aos-duration="500">
               <p  className='mx-auto  p-4 lg:p-0 md:w-6/12'>
         Discover these talented authors whose captivating stories will transport you to different worlds,and leave you eagerly turning the pages.  From gripping thrillers to  heartwarming romances, these   authors have something  special to offer for every book lover.
       </p>

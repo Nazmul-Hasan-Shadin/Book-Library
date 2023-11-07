@@ -2,7 +2,7 @@ import React from 'react';
 
 const BookPromotion = () => {
     return (
-        <div data-aos='fade-up'data-aos-duration='1500' className='mt-7'>
+        <div data-aos='fade-up'data-aos-duration='1000' className='mt-7'>
             <h2 className='text-3xl text-center text-red-500 font-semibold mb-6'>Book Promotions</h2>
             <p className='text-center text-lg mb-6'>
                 Explore our exciting book promotions and events. Join us for a series of literary experiences <br /> that you won't want to miss.

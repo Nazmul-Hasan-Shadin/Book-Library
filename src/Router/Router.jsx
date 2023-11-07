@@ -62,9 +62,9 @@ const router = createBrowserRouter([
         {
           path:'/updatebook/:id',
           element:<PrivateRoute><UpdateBook></UpdateBook></PrivateRoute>,
-          // loader: ({params})=> fetch(`https://books-server-six.vercel.app/single-book/${params.id}`)
+          loader: ({params})=> fetch(`https://books-server-six.vercel.app/single-book/${params.id}`)
      
-          loader: ({params})=> fetch(`http://localhost:5000/single-book/${params.id}`)
+          // loader: ({params})=> fetch(`http://localhost:5000/single-book/${params.id}`)
           
         },
         {

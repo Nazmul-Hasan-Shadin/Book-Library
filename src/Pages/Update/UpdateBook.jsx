@@ -6,8 +6,8 @@ import useAxios from '../../Hooks/useAxios';
 const UpdateBook = () => {
     const [category,setCategory]= useState();
 
-    const {author,bookImg,bookName,quantity,rating,_id}= useLoaderData();
-    
+    const {author,bookImg,bookName,quantity,rating,_id, category:cate}= useLoaderData();
+     
    
     const location = useLocation()
 
@@ -34,7 +34,13 @@ const UpdateBook = () => {
        bookName,quantity,rating,category,author
      }
   
-     
+     if (quantity <0) {
+      return toast.error(' Becareful book Quantity cannot be Negative')
+    }
+
+    if (rating >5) {
+      return toast.error('Rating Cannot be greater then 5')
+    }
     
     axios.put(`/update/${_id}`,formData)
     .then(data=>{
@@ -62,7 +68,7 @@ const UpdateBook = () => {
   <div className="hero-content flex-col lg:flex-row-reverse">
 
     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-         <h2 className='text-2xl'>Add book to database</h2>
+         <h2 className='text-2xl text-center mt-3'>Update Your Book</h2>
       <form onSubmit={handleAddBook} >
      <div className="card-body grid grid-cols-1 md:grid-cols-2 w-full" >
      <div className="form-control">
@@ -100,8 +106,8 @@ const UpdateBook = () => {
           <label className="label">
             <span className="label-text">category</span>
           </label>
-             <select onChange={handleChange} className="select select-info w-full max-w-xs">
-            <option disabled selected>Select Category</option>
+             <select onChange={handleChange} required  className="select select-info w-full max-w-xs">
+            <option required  selected>Select Category</option>
             <option>history</option>
             <option>comics</option>
             <option>health</option>
@@ -131,7 +137,7 @@ const UpdateBook = () => {
     
      <div className="form-control mt-6">
         
-        <input type="submit" value={'Add Book'} className="btn btn-primary" />
+        <input type="submit" value={'Update Book'} className="btn btn-primary" />
       </div>
        
        

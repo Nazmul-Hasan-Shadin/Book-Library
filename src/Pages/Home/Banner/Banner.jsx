@@ -4,14 +4,30 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import './animation.css'
 import "swiper/css/scrollbar";
 import banner1 from "../../../assets/images/banner.png";
 import banner2 from "../../../assets/images/banner3.png";
 import banner3 from "../../../assets/images/banner4.jpg";
 import banner4 from "../../../assets/images/towerBanner.png";
 import banner5 from "../../../assets/images/bannerCouple.png";
+import { useEffect, useState } from "react";
 
 const Banner = () => {
+  const texts = ["Literature", "Read"];
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+
+  const animateText = () => {
+    setCurrentTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
+  }
+
+  useEffect(() => {
+    const interval = setInterval(animateText, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+
   return (
     <div className="mt-20 mb-6">
       <Swiper
@@ -40,8 +56,8 @@ const Banner = () => {
             />
 
             <div className="absolute  top-1/4  lg:left-40 space-y-4 -translate-y-10 lg:translate-y-0">
-              <h2 className=" text-xl lg:text-3xl text-center lg:text font-bold lg:w-1/2">
-                We Love Litarature
+              <h2 className=" text-2xl lg:text-3xl text-center lg:text font-bold  lg:w-1/2  ">
+              <span>  We Love</span>  <span className="animate text-orange-700">{texts[currentTextIndex]}</span>
               </h2>
               <p className="text-gray-600 lg:w-1/2  p-4">
                 {" "}
@@ -49,7 +65,7 @@ const Banner = () => {
                 your gateway to a world of literary wonders. We believe that
                 every book is a journey waiting to be explored, and our library
                 is a treasure trove of stories, a sanctuary of knowledge, and a
-                gateway to boundless imagination. With a \
+                gateway to boundless imagination. With a 
               </p>
             </div>
           </div>
@@ -83,8 +99,7 @@ const Banner = () => {
             </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
+    
         ...
       </Swiper>
     </div>

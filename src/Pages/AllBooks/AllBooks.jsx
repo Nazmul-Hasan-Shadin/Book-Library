@@ -25,7 +25,7 @@ const AllBooks = () => {
     }
     return (
        <div>
-        <button onClick={()=>handleFilter()} className='btn btn-primary fixed top-5 right-10 z-5 '> See AvailableBook </button >
+        <button onClick={()=>handleFilter()} className='btn btn-primary  z-10 fixed  top-20 right-10 z-5 '> See AvailableBook </button >
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
             {
                quantityFilter ?allBooks?.data.map(book=>  <Book book={book} key={book._id}></Book>)  :quantity?.map(book=> <Book key={book._id} book={book} ></Book>)

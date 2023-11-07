@@ -20,7 +20,7 @@ const CategoryCard = ({category}) => {
         
          <div className="p-5 md:ml-20">
            <span>
-           <p className="mb-3 font-normal lg:text-2xl dark:text-white "> 
+           <p className="mb-3 font-normal lg:text-2xl"> 
            <span className="text-yellow-600">Categories:</span>{categoryName} 
             </p>
             <button className="btn btn-outline btn-warning btn-sm lg:btn-md">See All Books</button>

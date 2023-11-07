@@ -26,6 +26,14 @@ const AddBooks = () => {
      bookName,bookImg,quantity,desc,rating,category,author
    }
 
+    if (quantity <0) {
+      return toast.error(' Becareful book Quantity cannot be Negative')
+    }
+
+    if (rating >5) {
+      return toast.error('Rating Cannot be greater then 5')
+    }
+   
    
   
   axios.post('/books',formData,{withCredentials:true})

@@ -2,7 +2,7 @@ import React from 'react';
 
 const DarkMode = ({changeTheme}) => {
     return (
-        <div>
+        <div className='pl-8 w-full'>
         <label className="swap swap-rotate h-14">
   
   {/* this hidden checkbox controls the state */}

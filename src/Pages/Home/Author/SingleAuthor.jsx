@@ -3,7 +3,7 @@ import React from 'react';
 const SingleAuthor = ({data}) => {
   
     return (
-<div  data-aos="zoom-in-down" data-aos-duration='900'  className="card   bg-base-100 shadow-xl">
+<div   data-aos-duration='900'  className="card   bg-base-100 shadow-xl">
   <figure className="px-10 pt-10">
     <img src={data.img} alt="Shoes" className="rounded-xl" />
   </figure>

@@ -39,7 +39,7 @@ const Main = () => {
         
 
 
-          {/* <button onClick={()=>changeTheme()}>Dark</button> */}
+       
             <Navbar  changeTheme={changeTheme}></Navbar>
             <Outlet></Outlet>
         

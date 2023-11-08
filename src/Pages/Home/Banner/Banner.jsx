@@ -14,7 +14,7 @@ import banner5 from "../../../assets/images/bannerCouple.png";
 import { useEffect, useState } from "react";
 
 const Banner = () => {
-  const texts = ["Literature", "Read"];
+  const texts = ["study", "Read"];
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
 
   const animateText = () => {
@@ -22,14 +22,14 @@ const Banner = () => {
   }
 
   useEffect(() => {
-    const interval = setInterval(animateText, 4000);
+    const interval = setInterval(animateText, 2980);
 
     return () => clearInterval(interval);
   }, []);
 
 
   return (
-    <div className="mt-20 mb-6">
+    <div className="mt-6   rounded-lg mb-6">
       <Swiper
         // install Swiper modules
         modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -42,7 +42,7 @@ const Banner = () => {
         onSlideChange={() => console.log("slide change")}
       >
         <SwiperSlide>
-          <div className="relative h-[300px] lg:h-full">
+          <div className="relative  rounded-lg bg-[#efe6d5] h-[300px] lg:h-full">
             <img className=" hidden md:block" src={banner1} alt="" />
             <img
               className="absolute top-16 right-80 h-2/3 hidden md:block "
@@ -57,7 +57,7 @@ const Banner = () => {
 
             <div className="absolute  top-1/4  lg:left-40 space-y-4 -translate-y-10 lg:translate-y-0">
               <h2 className=" text-2xl lg:text-3xl text-center lg:text font-bold  lg:w-1/2  ">
-              <span>  We Love</span>  <span className="animate text-orange-700">{texts[currentTextIndex]}</span>
+              <span>  We Love to</span>  <span className="animate text-orange-700">{texts[currentTextIndex]}</span>
               </h2>
               <p className="text-gray-600 lg:w-1/2  p-4">
                 {" "}

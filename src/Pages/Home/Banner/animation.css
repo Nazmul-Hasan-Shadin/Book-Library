@@ -10,10 +10,10 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: white !important;
+    background-color: #efe6d5 !important;
     
     border-left: 2px solid #0000ff;
-    animation: typing  2.5s steps(12) infinite;
+    animation: typing  2.4s steps(12) infinite;
 }
 
 @keyframes typing {

@@ -54,7 +54,7 @@ const handleLogOut=()=>{
 
     return (
     <section className="w-full">
-      <div className="navbar p-0 bg-base-100 ">
+      <div className="navbar -mb-6 pb-6 bg-[#efe6d5] ">
   <div className="navbar-start ">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">

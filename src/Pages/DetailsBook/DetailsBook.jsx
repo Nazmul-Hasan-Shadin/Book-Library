@@ -27,11 +27,12 @@ const DetailsBook = ({book}) => {
       const  name= user?.displayName;
       const email= user?.email;
       const uniqueId=_id;
+    
       const unique= 'unique';
       // const bookImg= bookImg
 
       console.log(user.email);
-    const borrowedInfo= {date,name,email,bookImg,uniqueId,unique}
+    const borrowedInfo= {date,name,email,bookImg,uniqueId,unique,bookName,category}
 
       const modal = document.getElementById('my_modal_1');
       if (modal) {
@@ -144,7 +145,7 @@ const DetailsBook = ({book}) => {
 <dialog id="my_modal_1" className="modal">
   <div className="modal-box">
     <h3 className="font-bold text-lg">Hello!</h3>
-    <p className="py-4">Press ESC key or click the button below to close</p>
+    <p className="py-4">You Have to Borrowed one Book. Please Select Date .</p>
     <div className="flex justify-center">
       <form  onSubmit={handleBorrowForm} method="">
         {/* if there is a button in form, it will close the modal */}

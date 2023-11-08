@@ -2,7 +2,7 @@
 import useAxios from '../../../Hooks/useAxios';
 import { Link } from 'react-router-dom';
 import Rating from 'react-rating';
-
+import AOS from 'aos';
 import {AiOutlineStar,AiTwotoneStar}from "react-icons/ai"
 
 const BookCard = ({book}) => {
@@ -11,12 +11,12 @@ const {bookImg,_id,bookName,
 
  
     return (
-<div className="card   dark:bg-base-100     shadow ">
+<div data-aos='fade-up'   data-aos-duration="1000" className="card   dark:bg-base-100     shadow ">
   <figure>
     <img className="w-[100%] h-[300px] px-4" src={bookImg} alt="" />
     </figure>
   <div  className="card-body px-4">
-    <div className="flex w-[100%] gap-2 justify-between ">
+    <div className="flex w-[100%] gap-1 justify-between ">
         <p className=" ">Author: {author} </p>
 
     
@@ -26,7 +26,7 @@ const {bookImg,_id,bookName,
   fullSymbol={<AiTwotoneStar className='icon'></AiTwotoneStar>}
 />
 
-        <p className=" ">{rating} star </p>
+        <p className=" ">{rating}</p>
     </div>
     <div>
     <p className="text-blue-600    "> {bookName} </p>

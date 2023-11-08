@@ -32,13 +32,15 @@ const BorrowedBooks = () => {
      console.log(data,'this isdata');
  
     return (
-        <div className='grid grid-cols-1 lg:grid-cols-2  gap-2'>
+        <div className='max-w-7xl mx-auto '>
+             <div className='grid grid-cols-1 lg:grid-cols-2   gap-2'>
             {
                 data?.data?.map(borrowBook=> <BorrowedBook 
                     deleteMutate={mutate}
                     borrowBook={borrowBook}
                     key={borrowBook._id}></BorrowedBook> )
             }
+        </div>
         </div>
     );
 };

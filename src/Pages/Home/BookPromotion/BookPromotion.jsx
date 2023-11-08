@@ -30,7 +30,7 @@ const BookPromotion = () => {
                         <p className='text-gray-500'>LA, CALIFORNIA</p>
                     </div>
                 </div>
-                <div className='space-y-8 md:ml-28  '>
+                <div className='space-y-8  hidden md:block md:ml-28  '>
                     <div className='text-2xl flex items-center p-4 h-[100px] w-[380px]font-semibold text-gray-500   '>Festival Books</div>
                     <div className='text-2xl flex items-center p-4 h-[100px] w-[380px]font-semibold text-gray-800  '>Festival Books</div>
                     <div className='text-2xl  p-4 h-[100px] w-[380px]font-semibold text-gray-500 flex items-center   '>Book Fair</div>

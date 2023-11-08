@@ -1,12 +1,16 @@
+import Aos from 'aos';
 import React from 'react';
 import { AiOutlineStar, AiTwotoneStar } from 'react-icons/ai';
 import Rating from 'react-rating';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
 
 const Book = ({book}) => {
 const {_id, name, bookImg,date,email,borrowedDate,bookName,uniqueId,quantity,category,rating,author}=book;
+AOS.init();
+
     return (
-<div className="card   dark:bg-base-100     shadow ">
+<div data-aos='fade-up'   data-aos-duration="3000" className="card    dark:bg-base-100     shadow ">
   <figure>
     <img className="w-[100%] h-[300px] px-4" src={bookImg} alt="" />
     </figure>

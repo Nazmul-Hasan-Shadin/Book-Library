@@ -21,9 +21,9 @@ const UpdateBook = () => {
       e.preventDefault()
       const form =  new FormData(e.currentTarget);
       const bookName= form.get('bookName')
-    //   const bookImg= form.get('bookImg')
+      const bookImg= form.get('bookImg')
       const quantity= form.get('quantity')
-    //   const desc= form.get('desc')
+
       const rating= form.get('rating')
     
     
@@ -31,7 +31,7 @@ const UpdateBook = () => {
      
     
      const formData={
-       bookName,quantity,rating,category,author
+       bookName,quantity,rating,category,author,bookImg
      }
   
      if (quantity <0) {
@@ -77,13 +77,13 @@ const UpdateBook = () => {
           </label>
           <input type="text" defaultValue={bookName} name='bookName' placeholder="Book Name" className="input input-bordered w-full" required />
         </div>
-        {/* <div className="form-control">
+        <div className="form-control" >
           <label className="label">
             <span className="label-text">Books Image</span>
           </label>
-          <input type="text" name='bookImg' placeholder="books image url" className="input input-bordered" required />
+          <input defaultValue={bookImg} required type="text" name='bookImg' placeholder="books image url" className="input input-bordered"  />
     
-        </div> */}
+        </div>
 
         <div className="form-control">
           <label className="label">

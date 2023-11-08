@@ -63,7 +63,7 @@ const AddBooks = () => {
   <div className="hero-content flex-col lg:flex-row-reverse">
 
     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-         <h2 className='text-2xl'>Add book to database</h2>
+         <h2 className='text-2xl text-center'>Add book to database</h2>
       <form onSubmit={handleAddBook} >
      <div className="card-body grid grid-cols-1 md:grid-cols-2 w-full" >
      <div className="form-control">

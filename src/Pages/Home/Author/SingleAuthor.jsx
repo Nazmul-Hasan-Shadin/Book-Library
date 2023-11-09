@@ -8,7 +8,7 @@ const SingleAuthor = ({data}) => {
     <img src={data.img} alt="Shoes" className="rounded-xl" />
   </figure>
   <div className="card-body items-center text-center">
-    <h2 className="card-title">{data.name}</h2>
+    <h2  className="card-title text-yellow-500">{data.name}</h2>
     <h2 className="card-title">{data.role}</h2>
     <p>{data.desc}</p>
     {/* <div className="card-actions">

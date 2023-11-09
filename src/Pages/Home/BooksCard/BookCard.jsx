@@ -29,7 +29,7 @@ const {bookImg,_id,bookName,
         <p className=" ">{rating}</p>
     </div>
     <div>
-    <p className="text-blue-600    "> {bookName} </p>
+    <p > Name:    <span className="text-blue-600">{bookName} </span></p>
     <div className="card-actions gap-10 mb-4 justify-between ">
       <p className="text-[#f53c3c] font-extrabold "> Quantity: {quantity} </p>
       <p  className="font-bold "> category: {category} </p>

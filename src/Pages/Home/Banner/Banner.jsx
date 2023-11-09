@@ -29,7 +29,7 @@ const Banner = () => {
 
 
   return (
-    <div className="mt-6   rounded-lg mb-6">
+    <div className="mt-6    rounded-lg mb-6">
       <Swiper
         // install Swiper modules
         modules={[Navigation, Pagination, Scrollbar, A11y]}

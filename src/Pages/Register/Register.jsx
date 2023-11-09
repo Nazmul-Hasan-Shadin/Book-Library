@@ -7,8 +7,10 @@ import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import useAxios from '../../Hooks/useAxios';
 
 const Register = () => {
+    const axios= useAxios()
   const {createUser,logOut,handleUpdateUserProfile}= useContext(AuthContext)
   const navigate= useNavigate()
 
@@ -28,6 +30,10 @@ const Register = () => {
 
     createUser(email,password)
     .then(res=>{
+
+      axios.post("/jwt", res.email).then((res) => {
+        console.log(res);
+      });
       
          
         handleUpdateUserProfile(name,profile)

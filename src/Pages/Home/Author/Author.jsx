@@ -13,7 +13,7 @@ const Author = () => {
     
     console.log(data);
     return ( <div className='my-5 space-y-3'>
-        <h2 className='text-2xl font-bold text-center'>Authors of the month</h2>
+        <h2 className='text-2xl font-bold text-yellow-700 text-center'>Authors of the month</h2>
 
         <div className='overflow-x-hidden'>
         <div data-aos="fade-left"

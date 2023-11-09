@@ -48,7 +48,7 @@ const BorrowedBook = ({borrowBook,deleteMutate}) => {
               </div>
             </div>
             <div>
-              <div className="font-bold">{bookName}</div>
+              {/* <div className="font-bold">{bookName}</div> */}
               <div className="text-xs lg:text-lg opacity-50"> Return Date: {date}</div>
             </div>
           </div>

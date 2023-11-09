@@ -129,15 +129,15 @@ const DetailsBook = ({book}) => {
         </div>
         <p className="leading-relaxed">  {desc} </p>
 
-        <div className="flex">
-          <span className="title-font font-medium text-2xl text-red-600"> Price : {'available'} </span>
+        <div className="flex items-center gap-1">
+       
 
         
    
 
 
   
-  <span> <strong>Quantity</strong> : {quantity}  </span>
+  <span> <strong className='font-bold'>Quantity</strong> : {quantity}  </span>
        
           
 {/* Open the modal using document.getElementById('ID').showModal() method */}
@@ -157,7 +157,7 @@ const DetailsBook = ({book}) => {
   </div>
 </dialog>
 <Link to={`/readbook/${_id}`}>
-<button   className="flex w-28 px-9  ml-9 text-white bg-red-500 border-0 py-2 w- focus:outline-none hover:bg-red-600 rounded">Read</button>
+<button   className="flex w-28 px-9 ml-2 lg:ml-9 text-white bg-red-500 border-0 py-2 w- focus:outline-none hover:bg-red-600 rounded">Read</button>
 </Link>
 
         </div>
